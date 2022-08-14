@@ -91,6 +91,18 @@ void hangmanPaint()
 }
 
 
+void hangmanheader()
+{
+	std::cout << "		                  ___________          " << std::endl;
+	std::cout << "| |  | |      /\\      ||\\     || ||                 //\\        //\\           /\\      ||\\     ||" << std::endl;
+	std::cout << "| |  | |     /  \\     || \\    || ||                //  \\      //  \\         /  \\     || \\    ||" << std::endl;
+	std::cout << "|  ==  |    /    \\    ||  \\   || ||   _ _ _       //    \\    //    \\       /    \\    ||  \\   ||" << std::endl;
+	std::cout << "| |  | |   /======\\   ||   \\  || ||         ||   //      \\  //      \\     /======\\   ||   \\  ||" << std::endl;
+	std::cout << "| |  | |  /        \\  ||    \\ || ||         ||  //        \\//        \\   /        \\  ||    \\ ||" << std::endl;
+	std::cout << "| |  | | /          \\ ||     \\|| ||_________|| //          V          \\ /          \\ ||     \\||" << std::endl << std::endl << std::endl << std::endl;
+}
+
+
 void randomWordGeneration() {
 	std::random_device wordSeed;
 	const uint_least32_t seed = wordSeed();
@@ -119,8 +131,7 @@ void newGame()
 		}
 		else if (inputNewGame == "n" || inputNewGame == "N")
 		{
-			std::cin.clear();
-			std::cin.ignore();
+			
 			std::cout << "Das Programm beendet sich nun." << std::endl;
 			break;
 		}
@@ -144,7 +155,9 @@ void hiddeWord()
 
 
 int main()
+
 {
+	hangmanheader();
 	char inputGuess;
 	randomWordGeneration();
 	hiddeWord();
@@ -170,7 +183,9 @@ int main()
 				
 				drawHangman = false;
 				system("CLS");
+				hangmanheader();
 				hangmanPaint();
+				
 				hiddenAnswer[i] = inputGuess;
 				saveBool++;
 			}
@@ -193,6 +208,7 @@ int main()
 		{
 			system("CLS");
 			hangmanPaintPhase++;
+			hangmanheader();
 			hangmanPaint();
 		}
 
