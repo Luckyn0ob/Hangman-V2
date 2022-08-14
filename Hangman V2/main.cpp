@@ -14,7 +14,7 @@ unsigned int randomWordNumber = 0;
 void hangmanPaint()
 {
 
-	hangmanPaintPhase++;
+	
 
 	if (hangmanPaintPhase == 1)
 	{
@@ -114,6 +114,7 @@ void newGame()
 			system("CLS");
 			hiddenAnswer.clear();
 			randomWordNumber = 0;
+			hangmanPaintPhase = 0;
 			main();
 		}
 		else if (inputNewGame == "n" || inputNewGame == "N")
@@ -166,7 +167,10 @@ int main()
 
 			if (inputGuess == randomWord[randomWordNumber][i])
 			{
+				
 				drawHangman = false;
+				system("CLS");
+				hangmanPaint();
 				hiddenAnswer[i] = inputGuess;
 				saveBool++;
 			}
@@ -188,6 +192,7 @@ int main()
 		if (drawHangman == true)
 		{
 			system("CLS");
+			hangmanPaintPhase++;
 			hangmanPaint();
 		}
 
